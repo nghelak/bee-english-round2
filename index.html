@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bee The Best 2026 · Round 2 Coach</title>
+<style>
+:root{--ink:#17202a;--mut:#70808f;--line:#e3e6ea;--bee:#e0a800;--ok:#1e7a4d;--bad:#c02718;--bg:#f6f7f9}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;display:flex;flex-direction:column}
+header{background:#fff;border-bottom:1px solid var(--line);padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:5}
+.brand{font-weight:800;font-size:16px}.brand span{color:var(--mut);font-weight:500;font-size:13px;display:block}
+.spacer{flex:1}
+.clock{font-variant-numeric:tabular-nums;font-weight:800;font-size:26px;min-width:62px;text-align:right}
+.clock.read{color:var(--bee)}.clock.answer{color:var(--ok)}
+.phase{font-size:11px;text-transform:uppercase;letter-spacing:1.1px;color:var(--mut);font-weight:700}
+.score{font-size:13px;font-weight:700;background:#f1f3f6;border-radius:999px;padding:6px 14px}
+main{flex:1;overflow-y:auto;padding:20px 16px 8px}
+.inner{max-width:760px;margin:0 auto}
+.msg{display:flex;gap:10px;margin-bottom:14px;align-items:flex-start}
+.msg.you{justify-content:flex-end}
+.av{width:30px;height:30px;border-radius:50%;background:#fff7dd;border:1px solid #f0e0a8;display:flex;align-items:center;justify-content:center;font-size:16px;flex:0 0 30px}
+.bub{background:#fff;border:1px solid var(--line);border-radius:4px 14px 14px 14px;padding:12px 16px;max-width:82%}
+.msg.you .bub{background:var(--ink);color:#fff;border-color:var(--ink);border-radius:14px 4px 14px 14px}
+.bub ul{margin:8px 0 0;padding-left:20px}.bub li{margin-bottom:4px}
+.card{background:#fffdf5;border:1px solid #f0e2b0;border-radius:10px;padding:16px;margin:2px 0}
+.passage{font-size:18px;line-height:2}
+.emo{font-size:24px;letter-spacing:2px}
+.words{display:flex;flex-wrap:wrap;gap:8px}
+.w{background:#fff;border:1px solid var(--line);border-radius:7px;padding:6px 12px;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.grid .w{text-align:center}
+.keys{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.key{border:2px solid var(--ink);border-radius:7px;padding:5px 14px;font-weight:700;font-size:15px}
+.gone{color:var(--mut);font-style:italic;text-align:center;padding:18px 0;font-size:15px}
+.result{background:#f2f7f4;border-left:4px solid var(--ok);padding:10px 14px;border-radius:0 8px 8px 0}
+#chips{display:flex;gap:8px;flex-wrap:wrap;max-width:760px;margin:0 auto 10px;padding:0 16px}
+.chip{font:inherit;font-size:14px;font-weight:600;cursor:pointer;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 15px}
+.chip:hover{border-color:var(--ink)}
+footer{background:#fff;border-top:1px solid var(--line);padding:12px 16px 16px}
+form{max-width:760px;margin:0 auto;display:flex;gap:10px}
+input{flex:1;font:inherit;padding:12px 16px;border:1px solid var(--line);border-radius:999px;background:#fbfbfc}
+input:focus{outline:none;border-color:var(--ink);background:#fff}
+input:disabled{opacity:.5}
+#send{font:inherit;font-weight:700;cursor:pointer;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:12px 24px}
+#send:disabled{opacity:.35;cursor:default}
+.tip{max-width:760px;margin:8px auto 0;font-size:12px;color:var(--mut);text-align:center}
+@media(max-width:540px){.bub{max-width:88%}.grid{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="brand">Round 2 Coach 🐝<span>Bee The Best 2026 · FPT Polytechnic Tay Nguyen</span></div>
+<div class="spacer"></div><div class="score" id="score">Score 0 · Rounds 0</div>
+<div style="text-align:right"><div class="clock" id="clock"></div><div class="phase" id="phase"></div></div></header>
+<main><div class="inner" id="feed"></div></main>
+<div id="chips"></div>
+<footer><form id="form" autocomplete="off"><input id="input" placeholder="Say it out loud, then type your answer…"><button id="send">Send</button></form>
+<div class="tip">Runs entirely in your browser — no internet needed after loading. Refresh to reset the score.</div></footer>
+<script>
+const BANK={"emoji":[{"t":"Every evening I open my 1. 📓✏️📚 and review the lesson. I use my 2. 📱💬🌐 to look up new words, and before the test I make a 3. 📅✅📝 so I do not forget anything.","a":[["notebook","study notes","note book"],["smartphone","mobile phone","phone","the internet","internet"],["study plan","study schedule","revision plan","revision"]]},{"t":"Our class now uses a 1. 🤖💬 to practise English at home. All our files are kept in 2. ☁️💾🔒 so we never lose them, and we log in with a strong 3. 🔑🔤🔢.","a":[["chatbot","ai assistant","chat bot"],["cloud storage","the cloud","cloud"],["password","pass word"]]},{"t":"Last 1. 🏖☀️🧳 we travelled to a quiet 2. 🏝🌴🌊. We took a lot of photos with a small 3. 📷🎞.","a":[["holiday","vacation","summer holiday"],["island","beach"],["camera"]]},{"t":"Before I buy anything online, I 1. 🔍💲💲 to find the cheapest one. I pay using 2. 📱💳 and I always check the website's 3. 🔒🛡💻.","a":[["compare prices","compare the prices","price comparison"],["mobile payments","mobile payment","e wallet","online payment"],["online security","data security","security"]]},{"t":"My morning starts at a busy 1. 🥖🍰🏪 near my house. Then I ride my 2. 🚲 to campus, and if it rains I open my 3. ☔🌧.","a":[["bakery","bake shop"],["bicycle","bike"],["umbrella"]]},{"t":"This morning the sky was very 1. ☁️🌫 so I took my 2. ☔ with me. By noon it became 3. ☀️😎 and I sat outside to study.","a":[["cloudy","overcast"],["umbrella"],["bright","sunny"]]},{"t":"On Sunday I go to the 1. 🏪🛒🥕 to buy food for the week. I always 2. 🔍💲💲 before I choose, so my shopping is very 3. 💰✅👍.","a":[["supermarket","grocery store"],["compare prices","compare the prices"],["economical","affordable","cheap","inexpensive"]]},{"t":"Our lecturer uploads all the 1. 📚📄📊 to the class drive. I turn them into 2. 🎧🎙📱 and listen on the bus. Then I write short 3. 📝✏️ before the test.","a":[["study materials","study material","learning materials"],["podcast","audio overview","audio","an audio overview"],["study notes","notes"]]},{"t":"I unlock my phone with 1. 👤📱🔓 instead of typing a 2. 🔑🔤🔢. I also keep all my documents in 3. ☁️💾.","a":[["face id","face recognition","facial recognition"],["password"],["cloud storage","the cloud","cloud"]]},{"t":"To get a good job you need strong 1. 🧩🤔💡 and good 2. ⏰📅✅. You also need clear 3. 🗣💬👥 with your team.","a":[["problem solving skills","problem solving"],["time management skills","time management"],["communication","communication skills"]]}],"syn":[{"bank":true,"list":["glad","huge","sleepy","cheerful","quick","bitter","large","rapid","delighted","noisy","tremendous","swift"],"k":[["Happy",["glad","cheerful","delighted"]],["Big",["huge","large","tremendous"]],["Fast",["quick","rapid","swift"]]],"d":["sleepy","bitter","noisy"]},{"bank":true,"list":["affordable","powerful","crowded","inexpensive","cautious","sturdy","economical","attentive","frozen","firm","watchful","dusty"],"k":[["Cheap",["affordable","inexpensive","economical"]],["Strong",["powerful","sturdy","firm"]],["Careful",["cautious","attentive","watchful"]]],"d":["crowded","frozen","dusty"]},{"bank":true,"list":["attractive","brilliant","lazy","gorgeous","challenging","spicy","nice-looking","wise","complicated","bright","hard","rainy"],"k":[["Beautiful",["attractive","gorgeous","nice-looking"]],["Clever",["brilliant","wise","bright"]],["Difficult",["challenging","complicated","hard"]]],"d":["lazy","spicy","rainy"]},{"bank":false,"list":["peaceful","sleepy","bright","silent","exhausted","furious","still","weary","annoyed","local","mad","spicy"],"k":[["Quiet",["peaceful","silent","still"]],["Tired",["sleepy","exhausted","weary"]],["Angry",["furious","annoyed","mad"]]],"d":["bright","local","spicy"]},{"bank":false,"list":["kind","reckless","clever","giving","sloppy","frozen","unselfish","thoughtless","sensible","dusty","knowledgeable","swift"],"k":[["Generous",["kind","giving","unselfish"]],["Careless",["reckless","sloppy","thoughtless"]],["Wise",["clever","sensible","knowledgeable"]]],"d":["frozen","dusty","swift"]},{"bank":false,"list":["advanced","antiquated","dusty","up-to-date","traditional","competent","innovative","outdated","capable","spicy","able","rainy"],"k":[["Modern",["advanced","up-to-date","innovative"]],["Old-fashioned",["antiquated","traditional","outdated"]],["Skilled",["competent","capable","able"]]],"d":["dusty","spicy","rainy"]},{"bank":false,"list":["tasty","packed","frozen","flavourful","busy","courteous","mouth-watering","bustling","respectful","lazy","well-mannered","cloudy"],"k":[["Delicious",["tasty","flavourful","mouth-watering"]],["Crowded",["packed","busy","bustling"]],["Polite",["courteous","respectful","well-mannered"]]],"d":["frozen","lazy","cloudy"]},{"bank":false,"list":["fearless","generous","sleepy","bold","caring","valuable","courageous","warm-hearted","significant","noisy","essential","dusty"],"k":[["Brave",["fearless","bold","courageous"]],["Kind",["generous","caring","warm-hearted"]],["Important",["valuable","significant","essential"]]],"d":["sleepy","noisy","dusty"]},{"bank":false,"list":["tiny","unhappy","swift","little","upset","wealthy","mini","miserable","well-off","spicy","affluent","bright"],"k":[["Small",["tiny","little","mini"]],["Sad",["unhappy","upset","miserable"]],["Rich",["wealthy","well-off","affluent"]]],"d":["swift","spicy","bright"]},{"bank":false,"list":["loud","risky","peaceful","deafening","unsafe","idle","rowdy","hazardous","sluggish","swift","inactive","bright"],"k":[["Noisy",["loud","deafening","rowdy"]],["Dangerous",["risky","unsafe","hazardous"]],["Lazy",["idle","sluggish","inactive"]]],"d":["peaceful","swift","bright"]}],"mem":[[["notebook","bicycle","umbrella"],["teacher","lecturer","classroom"],["password","website","network"]],[["bakery","restaurant","supermarket"],["camera","guitar","wallet"],["research","revision","assessment"]],[["mountain","forest","island"],["chatbot","software","devices"],["holiday","festival","picnic"]],[["dentist","engineer","programmer"],["study plan","study notes","syllabus"],["passport","journey","adventure"]],[["cloud storage","data security","face ID"],["museum","library","cinema"],["weekend","weather","environment"]],[["umbrella","blanket","bottle"],["museum","castle","cinema"],["knowledge","experience","achievement"]],[["beach","river","mountain"],["teacher","dentist","painter"],["opportunity","perseverance","competence"]],[["smartphone","notebook","camera"],["classroom","library","factory"],["assignment","project","presentation"]],[["chocolate","bakery","kitchen"],["bicycle","journey","adventure"],["website","network","connection"]],[["online courses","online learning","study schedule"],["electric vehicles","mobile payments","instant messages"],["environment","infrastructure","development"]]]};
+const $=s=>document.querySelector(s);
+const feed=$('#feed'),form=$('#form'),input=$('#input'),send=$('#send'),
+      chips=$('#chips'),clock=$('#clock'),phase=$('#phase'),scoreEl=$('#score');
+let S={mode:null,star:false,idx:0,sub:0,pts:0,got:0,need:3,total:0,rounds:0,busy:false,timer:null,cur:null,answers:[]};
+
+function bubble(who,html,cls){
+  const d=document.createElement('div');
+  d.className='msg '+who+(cls?' '+cls:'');
+  d.innerHTML=(who==='bot'?'<div class="av">🐝</div>':'')+'<div class="bub">'+html+'</div>';
+  feed.appendChild(d); feed.scrollTop=feed.scrollHeight; return d;
+}
+const say=(h,c)=>bubble('bot',h,c);
+const me=t=>bubble('you',esc(t));
+function esc(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+function norm(s){return String(s).toLowerCase().replace(/[^a-z0-9\s]/g,' ').replace(/\b(a|an|the|my|our)\b/g,' ').replace(/\s+/g,' ').trim();}
+function hit(user,accepted){const u=norm(user);return accepted.some(a=>{const n=norm(a);return u===n||new RegExp('(^| )'+n.replace(/ /g,' ')+'( |$)').test(u);});}
+
+function setChips(list){chips.innerHTML='';list.forEach(([label,fn])=>{const b=document.createElement('button');b.className='chip';b.textContent=label;b.onclick=fn;chips.appendChild(b);});}
+function lock(on){S.busy=on;input.disabled=on;send.disabled=on;if(!on)input.focus();}
+function stopClock(){clearInterval(S.timer);S.timer=null;clock.textContent='';phase.textContent='';clock.className='clock';}
+function runClock(sec,label,cls,done){
+  clearInterval(S.timer);let s=sec;clock.className='clock '+cls;phase.textContent=label;clock.textContent=s+'s';
+  S.timer=setInterval(()=>{s--;clock.textContent=s+'s';if(s<=0){clearInterval(S.timer);S.timer=null;done&&done();}},1000);
+}
+function updScore(){scoreEl.textContent='Score '+S.total+'  ·  Rounds '+S.rounds;}
+const pick=n=>Math.floor(Math.random()*n);
+
+/* ---------- menu ---------- */
+function menu(){
+  stopClock();lock(true);
+  say('What do you want to train?');
+  setChips([
+    ['🎲 Random draw (like the real round)',()=>start(pick(3))],
+    ['1 · Emoji passage',()=>start(0)],
+    ['2 · Synonyms',()=>start(1)],
+    ['3 · Memory',()=>start(2)],
+    ['📖 Rules',()=>{me('Rules');rules();}]
+  ]);
+}
+function rules(){
+  say('<b>Round 2 — The Three Flash Challenges</b><ul>'+
+  '<li>You draw and complete <b>only 1</b> of the 3 challenges.</li>'+
+  '<li>3 questions per set · 1 point each · max 3 points.</li>'+
+  '<li>An answer counts only if the keyword is <b>pronounced correctly</b> — say it out loud before you type.</li>'+
+  '<li><b>Hope Star ⭐</b>: every correct answer is worth 2 points, but if you get fewer than 2 right you <b>lose 2 points</b>.</li></ul>');
+  setTimeout(menu,300);
+}
+function askStar(then){
+  say('Take the <b>Hope Star ⭐</b>? Double points if you get at least 2 of 3 — but minus 2 points if you fail.');
+  setChips([['⭐ Yes, take the star',()=>{me('Take the Hope Star');S.star=true;then();}],
+            ['No star, play it safe',()=>{me('No star');S.star=false;then();}]]);
+}
+
+/* ---------- start ---------- */
+function start(mode){
+  S.mode=mode;S.pts=0;S.got=0;S.sub=0;S.answers=[];
+  me(['Emoji passage','Synonyms','Memory'][mode]);
+  askStar(()=>{ chips.innerHTML='';
+    if(mode===0)runEmoji(); if(mode===1)runSyn(); if(mode===2)runMem(); });
+}
+
+/* ---------- challenge 1 ---------- */
+function runEmoji(){
+  const q=BANK.emoji[pick(BANK.emoji.length)];S.cur=q;S.sub=0;S.need=3;
+  say('<b>Challenge 1 — Emoji passage.</b> 20 seconds to read, then it disappears and you have 40 seconds for all three answers.');
+  const card=say('<div class="card" id="stage"><div class="passage">'+q.t.replace(/(\d\.)\s*(\S+)/g,'$1 <span class="emo">$2</span>')+'</div></div>');
+  lock(true);
+  runClock(20,'reading','read',()=>{
+    card.querySelector('#stage').innerHTML='<div class="gone">Passage hidden 🙈</div>';
+    say('Time! Type answer <b>1</b>, then 2, then 3. Say each one out loud first.');
+    lock(false);
+    runClock(40,'answering','answer',()=>{say('⏱ 40 seconds are up — in the real round you would stop here. Finish anyway so you can check.');});
+  });
+}
+function gradeEmoji(txt){
+  const ok=hit(txt,S.cur.a[S.sub]);
+  if(ok){S.got++;say('✅ Correct — '+esc(S.cur.a[S.sub][0])+'');}
+  else say('❌ Not quite. Accepted: <b>'+S.cur.a[S.sub].map(esc).join(' / ')+'</b>');
+  S.sub++;
+  if(S.sub<3){say('Answer <b>'+(S.sub+1)+'</b>?');}
+  else finish();
+}
+
+/* ---------- challenge 2 ---------- */
+function runSyn(){
+  const q=BANK.syn[pick(BANK.syn.length)];S.cur=q;S.sub=0;S.need=3;
+  say('<b>Challenge 2 — Synonyms.</b> 10 seconds to view 12 words, then 20 seconds to give 3 synonyms for each key word. 3 words are distractors.'+(q.bank?' <i>(all words from the official bank)</i>':''));
+  const card=say('<div class="card" id="stage"><div class="words">'+q.list.map(w=>'<span class="w">'+esc(w)+'</span>').join('')+'</div><div class="keys">'+q.k.map(k=>'<span class="key">'+esc(k[0])+'</span>').join('')+'</div></div>');
+  lock(true);
+  runClock(10,'viewing','read',()=>{
+    card.querySelector('#stage').innerHTML='<div class="gone">List hidden 🙈</div><div class="keys">'+q.k.map(k=>'<span class="key">'+esc(k[0])+'</span>').join('')+'</div>';
+    say('Time! Give 3 synonyms for <b>'+esc(q.k[0][0])+'</b> — separate them with commas.');
+    lock(false);
+    runClock(20,'answering','answer',()=>{say('⏱ 20 seconds are up. Keep going to check your answers.');});
+  });
+}
+function gradeSyn(txt){
+  const need=S.cur.k[S.sub][1],parts=txt.split(/[,;/]|\band\b/).map(x=>x.trim()).filter(Boolean);
+  const found=need.filter(n=>parts.some(p=>norm(p)===norm(n)));
+  if(found.length===3){S.got++;say('✅ Complete set — 1 point.');}
+  else say('❌ You got '+found.length+' of 3, so this set scores <b>0</b> (incomplete sets earn nothing). Correct: <b>'+need.map(esc).join(', ')+'</b>');
+  S.sub++;
+  if(S.sub<3)say('Now 3 synonyms for <b>'+esc(S.cur.k[S.sub][0])+'</b>?');
+  else{say('<i>Distractors in that list: '+S.cur.d.map(esc).join(', ')+'</i>');finish();}
+}
+
+/* ---------- challenge 3 ---------- */
+function runMem(){
+  const q=BANK.mem[pick(BANK.mem.length)];S.cur=q;S.sub=0;S.need=3;
+  say('<b>Challenge 3 — Memory.</b> 10 seconds to memorize 9 words, then 20 seconds to recall them, three at a time.');
+  const card=say('<div class="card" id="stage"><div class="grid">'+q.flat().map(w=>'<span class="w">'+esc(w)+'</span>').join('')+'</div></div>');
+  lock(true);
+  runClock(10,'memorizing','read',()=>{
+    card.querySelector('#stage').innerHTML='<div class="gone">Words hidden 🙈</div>';
+    say('Time! Type the <b>3 words from row 1</b>, separated by commas.');
+    lock(false);
+    runClock(20,'recalling','answer',()=>{say('⏱ 20 seconds are up. Finish anyway to check.');});
+  });
+}
+function gradeMem(txt){
+  const need=S.cur[S.sub],parts=txt.split(/[,;/]|\band\b/).map(x=>x.trim()).filter(Boolean);
+  const found=need.filter(n=>parts.some(p=>norm(p)===norm(n)));
+  if(found.length===3){S.got++;say('✅ Complete row — 1 point.');}
+  else say('❌ '+found.length+' of 3 — incomplete rows score <b>0</b>. Row was: <b>'+need.map(esc).join(', ')+'</b>');
+  S.sub++;
+  if(S.sub<3)say('Row <b>'+(S.sub+1)+'</b> — three words?');
+  else finish();
+}
+
+/* ---------- finish ---------- */
+function finish(){
+  stopClock();lock(true);S.rounds++;
+  let pts=S.got,note='';
+  if(S.star){
+    if(S.got>=2){pts=S.got*2;note='⭐ Hope Star passed — points doubled.';}
+    else{pts=-2;note='⭐ Hope Star failed (you needed 2 of 3) — <b>minus 2 points</b>.';}
+  }
+  S.total+=pts;updScore();
+  say('<div class="result"><b>'+S.got+' / 3 correct</b><br>'+(note?note+'<br>':'')+'This round: <b>'+(pts>0?'+':'')+pts+'</b> points<br>Running total: <b>'+S.total+'</b></div>');
+  if(S.got===3)say('Perfect set. Now do it again out loud, at speed — pronunciation is what actually scores you points.');
+  else if(S.got===0)say('Rough one. Try the same challenge again — the sets are drawn at random so you will get a new one.');
+  setTimeout(menu,400);
+}
+
+/* ---------- input ---------- */
+form.onsubmit=e=>{
+  e.preventDefault();const t=input.value.trim();if(!t||S.busy)return;
+  input.value='';me(t);
+  if(S.mode===0)gradeEmoji(t); else if(S.mode===1)gradeSyn(t); else if(S.mode===2)gradeMem(t);
+};
+
+say("Hi Bo, Dinh and Nhat 👋 I'm your Round 2 coach. We'll drill the three flash challenges under the real clock.<br><br><b>Say every answer out loud before you type it</b> — in the real round an answer with wrong pronunciation scores zero.");
+menu();
+</script></body></html>
